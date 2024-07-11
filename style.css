@@ -44,9 +44,17 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 html {
-  scroll-behavior: smooth !important;
+  /* scroll-behavior: smooth !important; */
   overflow-x: hidden;
 }
+
+.smooth-scroll {
+  scroll-behavior: auto; /* Classe pour les liens avec défilement fluide */
+}
+
+
+
+
 
 a {
   text-decoration: none;
@@ -224,6 +232,9 @@ body {
 
 /*home*/
 
+
+
+
 #home .wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -274,38 +285,30 @@ body {
 
 /*changement de text*/
 
-p span {
-  color: #bd53ed;
-  position: relative;
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
-p span::before {
-  content: "";
-  height: 30px;
-  width: 2px;
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  background: var(--violet);
-  -webkit-transform: translateY(-45%);
-  -ms-transform: translateY(-45%);
-  transform: translateY(-45%);
-  -webkit-animation: blink 0.7s infinite;
+
+.blinking-cursor::after {
+  content: '|';
   animation: blink 0.7s infinite;
 }
-p span.stop-blinking::before {
-  -webkit-animation: none;
+
+.stop-blinking::after {
+  content: '|';
   animation: none;
 }
-@-webkit-keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
+
+
+
+
+
 
 #home .wrap .home-bouton {
   width: 75%;
@@ -336,6 +339,13 @@ p span.stop-blinking::before {
 
 #home .wrap .image {
   width: 62%;
+  
+}
+
+#home .wrap .image img{
+  background-color: transparent;
+
+  
 }
 
 /*home bottom*/
@@ -519,19 +529,35 @@ p span.stop-blinking::before {
   color: var(--violet);
 }
 
+
+
 /* work */
 
+
 #work .full-content {
-  -ms-scroll-chaining: none;
-  overscroll-behavior: none;
-  width: 300%;
-  height: 100%;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  padding: 0;
+  overflow: hidden;
+
+} 
+
+#work .panel { 
+  color: var(--color-just-black);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
 }
+
 
 #work .work-content {
   display: -webkit-box;
@@ -601,7 +627,7 @@ p span.stop-blinking::before {
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
-}
+} 
 
 #work video {
   width: 600px;

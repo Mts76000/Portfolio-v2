@@ -33,7 +33,7 @@ async function addForm() {
       form.style.justifyContent = "space-between";
 
       const success = document.createElement("h3");
-      success.innerHTML = "Your message has been sent";
+      success.innerHTML = "Votre message a été envoyé";
       success.classList.add("success");
       b.appendChild(success);
     } else {

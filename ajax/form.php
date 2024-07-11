@@ -39,16 +39,16 @@ function getform()
         $retour = mail('contact@mathis-lamotte.com', "Nouveau message de " . $nom , $message, 'From: contact@mathis-lamotte.com' . "\r\n" . 'Reply-to: ' . $email );
 
 
-        $messageretour = "Bonjour ". $prenom.",
+        $messageretour = "Bonjour $prenom,
 
-        Votre message via le formulaire de contact a bien été reçu. Merci pour votre prise de contact.
-
-        Je vous répondrai dans les plus brefs délais.
-
-        Cordialement,
-
-        Mathis Lamotte";
-
+Votre message via le formulaire de contact a bien été reçu. Merci pour votre prise de contact.
+        
+Je vous répondrai dans les plus brefs délais.
+        
+Cordialement,
+        
+Mathis Lamotte";
+        
         $confirm = mail($email, "Confirmation de réception de votre message" , $messageretour, 'From: contact@mathis-lamotte.com' . "\r\n" . 'Reply-to: lamottemathis@gmail.com '  );
 
 

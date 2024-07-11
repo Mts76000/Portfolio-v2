@@ -15,10 +15,10 @@ get_header();
             <div class="home-text">
                 <p>Bonjour, je m'appelle</p>
                 <p class="nom">MATHIS LAMOTTE</p>
-                <p>je suis un <span id="changement" class="text-gray"> </span> 👋🏻</p>
+                <p>et je suis un <span id="changement" class="blinking-cursor text-gray"> </span>👋🏻</p>
             </div>
             <div class="home-bouton">
-                <a data-aos="fade-up" data-aos-duration="500" href="#skills">Voir plus</a>
+                <a class="smooth-link" data-aos="fade-up" data-aos-duration="500" href="#skills">Voir plus</a>
             </div>
         </div>
         <div class="image">
@@ -31,7 +31,7 @@ get_header();
                     <span class="name">Github</span>
                 </div>
                 <div class="scrool">
-                    <a href="#skill">
+                    <a class="smooth-link" href="#skill">
                         <p>scrool</p>
                     </a>
                     <i class="fa-solid fa-angle-down"></i>
@@ -41,6 +41,7 @@ get_header();
         </div>
     </div>
 </section>
+
 
 
 
@@ -86,15 +87,19 @@ get_header();
 </section>
 
 
+
+
+
+
 <section id="work">
-    <div class="full-content">
+    <div id="panels-container" class="full-content" style="width: 300%;">
         <?php
 
         $args = array(
             'post_type' => 'work',
             'post_status' => 'publish',
-            'orderby' => 'title',
-            'order' => 'asc',
+            'orderby' => 'date',
+            'order' => 'dcd',
             'posts_per_page' => 5
         );
 
@@ -109,7 +114,7 @@ get_header();
                 $metas = get_post_meta(get_the_ID());
                 $url = web_r($metas, 'video');
         ?>
-                <section class="panel">
+                <section  class="panel">
                     <div class="work-content">
                         <div class="work-text">
                             <h3><?php echo get_the_title(); ?></h3>
@@ -250,7 +255,7 @@ get_header();
                             </div>
                             <div class="scrool">
                                 <i class="fa-solid fa-angle-up"></i>
-                                <a href="#masthead">
+                                <a class="smooth-link" href="#masthead">
                                     <p>top</p>
                                 </a>
                             </div>
